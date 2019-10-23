@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.springframework.org/schema/beans
+         https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+         https://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+         https://www.springframework.org/schema/aop/spring-aop.xsd
+         http://www.springframework.org/schema/context
+         https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+         https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+         
+         <!-- 配置一个自定义控制器 -->
+         <bean name="/mc" class="com.turing.controller1.MyController"></bean>
+         
+         <!-- 扫描组件 -->
+         <context:component-scan base-package="com.turing"></context:component-scan>
+    
+    	 <!-- 开启mvc注解 -->
+    	 <mvc:annotation-driven/>
+    
+    	 <!-- 开启访问静态资源 -->
+    	 <mvc:default-servlet-handler/>
+    	 
+    	 <!-- 配置视图解析器(覆盖容器中已有的视图解析器了) -->
+    	 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    	 	<!-- 配置前缀 -->
+    	 	<property name="prefix" value="/WEB-INF/"></property>
+    	 	<property name="suffix" value=".jsp"></property>
+    	 	<!-- 配置后缀 -->
+    	 </bean>
+
+</beans>
